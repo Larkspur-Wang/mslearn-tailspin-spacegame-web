@@ -56,7 +56,13 @@ steps:
 
 - task: WhiteSource Bolt@20
   displayName: 'Run WhiteSource Bolt'
-  
+
+- task: SynopsysDetectTask@2
+  inputs:
+    Products: 'BD'
+    BlackDuckService: 'Blackduck-otis'
+    DetectVersion: 'latest'
+
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
